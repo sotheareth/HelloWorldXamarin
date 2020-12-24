@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloWorld.Navigation.TabPage.TabPage"
+            xmlns:local="clr-namespace:HelloWorld.Navigation">
+
+    <NavigationPage Title="Contact2" IconImageSource="https://picsum.photos/100/100">
+        <x:Arguments>
+            <local:ContactPage />
+        </x:Arguments>
+    </NavigationPage>
+    <ContentPage Title="Page1" IconImageSource="https://picsum.photos/100/100">
+        <Label Text="Content of Page1" HorizontalOptions="Center" VerticalOptions="Center" />
+    </ContentPage>
+    <ContentPage Title="Page2" IconImageSource="https://picsum.photos/100">
+        <Label Text="Content Of Page2" HorizontalOptions="Center" VerticalOptions="Center" />
+    </ContentPage>
+</TabbedPage>

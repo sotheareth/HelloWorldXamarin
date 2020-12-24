@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloWorld.ListViewGroupPage">
+    <ListView x:Name="listView" HasUnevenRows="True"
+              IsGroupingEnabled="True"
+              GroupDisplayBinding="{Binding Title}"
+              GroupShortNameBinding="{Binding ShortTitle}"
+              ItemTapped="listView_ItemTapped"
+              ItemSelected="listView_ItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="0, 5, 0, 0" BackgroundColor="Yellow">
+                        <Image Source="{Binding ImageUrl}"/>
+                        <StackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Status}" />
+                        </StackLayout>
+                        <Button Text="Follow" />
+                    </StackLayout>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Call" Clicked="Call_Clicked" CommandParameter="{Binding .}" />
+                        <MenuItem Text="Delete" IsDestructive="True" CommandParameter="{Binding .}" Clicked="Delete_Clicked" />
+                    </ViewCell.ContextActions>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

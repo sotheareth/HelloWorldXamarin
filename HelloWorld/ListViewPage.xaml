@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloWorld.ListViewPage">
+
+    <StackLayout>
+        <SearchBar x:Name="searchText" Placeholder="Search..." TextChanged="Search_ListView" />
+        <ListView x:Name="listView" IsPullToRefreshEnabled="True" Refreshing="refresh_listView"
+              ItemTapped="listView_ItemTapped"
+              ItemSelected="listView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Name}" ImageSource="{Binding ImageUrl}" Detail="{Binding Status}">
+                        <ImageCell.ContextActions>
+                            <MenuItem Text="Call" Clicked="Call_Clicked" CommandParameter="{Binding .}" />
+                            <MenuItem Text="Delete" IsDestructive="True" CommandParameter="{Binding .}" Clicked="Delete_Clicked" />
+                        </ImageCell.ContextActions>
+                    </ImageCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
